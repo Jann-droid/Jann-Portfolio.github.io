@@ -239,12 +239,11 @@ function changeKey() {
 window.onload = function() {
   const saved = localStorage.getItem("ir_api_key");
   if (saved && saved.startsWith("sk-ant-")) {
-    apiKey = saved;
     document.getElementById("keyInput").value = saved;
-    document.getElementById("keyOverlay").style.display = "none";
-    document.getElementById("app").style.display = "block";
-    initApp();
   }
+  // Always show the overlay — user must confirm key each session
+  document.getElementById("keyOverlay").style.display = "flex";
+  document.getElementById("app").style.display = "none";
 };
 
 function initApp() {
